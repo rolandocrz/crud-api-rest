@@ -3,16 +3,16 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Index</title>
+    <title>Lista de Alumnos</title>
     <link
-      href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css"
       rel="stylesheet"
+      href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css"
     />
   </head>
   <body>
     <nav class="navbar navbar-expand-lg navbar-dark bg-primary">
       <div class="container-fluid">
-        <a class="navbar-brand" href="index.html">Index</a>
+        <a class="navbar-brand" href="../index.html">Index</a>
         <button
           class="navbar-toggler"
           type="button"
@@ -38,26 +38,26 @@
         </div>
       </div>
     </nav>
+    <div class="container py-5">
+      <h1 class="text-center my-5 font-weight-bold">Lista de Alumnos</h1>
 
-    <div class="container mt-5">
-      <div class="card border-0 shadow-sm rounded">
-        <div class="card-body text-center">
-          <div class="mb-4">
-            <img
-              src="img/imgage-Profile.jpeg"
-              class="rounded-circle img-fluid"
-              alt="Imagen de perfil"
-              style="width: 300px"
-            />
-          </div>
-          <h2>Nombre: Jesus Rolando Cruz Perez</h2>
-          <h4>UPSIN</h4>
-          <h5>Grupo: 8-4</h5>
-        </div>
+      <!-- Tabla -->
+      <div class="table-responsive">
+        <table class="table table-bordered table-striped text-center">
+          <thead class="thead-light">
+            <tr>
+              <th class="py-2 text-center">Nombre</th>
+              <th class="py-2 text-center">Domicilio</th>
+              <th class="py-2 text-center">Edad</th>
+              <th class="py-2 text-center">Sexo</th>
+            </tr>
+          </thead>
+          <tbody id="usuarios-body"></tbody>
+        </table>
       </div>
     </div>
 
-    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+    <script src="/js/alumnos.js"></script>
     <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.5.4/dist/umd/popper.min.js"></script>
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
