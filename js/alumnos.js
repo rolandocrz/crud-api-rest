@@ -1,12 +1,14 @@
 const API_URL = "https://rest-apinodemysql-production.up.railway.app/alumnos";
 
-document.addEventListener("DOMContentLoaded", () => {
+// Función para cargar alumnos desde la API
+function cargarAlumnos() {
   fetch(API_URL)
     .then((response) => response.json())
     .then((data) => mostrarAlumnos(data))
     .catch((error) => console.error("Error al cargar los datos:", error));
-});
+}
 
+// Función para mostrar los alumnos en la tabla
 function mostrarAlumnos(alumnos) {
   const tbody = document.getElementById("usuarios-body");
   tbody.innerHTML = ""; // Limpiar contenido previo
@@ -24,3 +26,18 @@ function mostrarAlumnos(alumnos) {
     tbody.appendChild(fila);
   });
 }
+
+// Función para limpiar la tabla
+function limpiarTabla() {
+  document.getElementById("usuarios-body").innerHTML = "";
+}
+
+// Agregar eventos a los botones
+document.addEventListener("DOMContentLoaded", () => {
+  document
+    .getElementById("cargar-btn")
+    .addEventListener("click", cargarAlumnos);
+  document
+    .getElementById("limpiar-btn")
+    .addEventListener("click", limpiarTabla);
+});
