@@ -4,6 +4,18 @@ const API_URL =
 
 document.addEventListener("DOMContentLoaded", fetchAlumnos);
 
+// btn para cargar todos los alumnos
+const btnCargar = document.getElementById("btnCargar");
+btnCargar.addEventListener("click", fetchAlumnos);
+
+// btn para cargar todos los alumnos con status 1 (Activo)
+const btnActivos = document.getElementById("btnActivos");
+btnActivos.addEventListener("click", () => filtrarAlumnos(1));
+
+// btn para cargar todos los alumnos con status 0 (Inactivo)
+const btnInactivos = document.getElementById("btnInactivos");
+btnInactivos.addEventListener("click", () => filtrarAlumnos(0));
+
 // Funcin para cargar los alumnos
 async function fetchAlumnos() {
   try {
@@ -15,6 +27,23 @@ async function fetchAlumnos() {
   } catch (error) {
     console.error("Error:", error);
     alert("Hubo un error al cargar los alumnos");
+  }
+}
+
+// Función para filtrar alumnos por estado
+async function filtrarAlumnos(status) {
+  try {
+    const response = await fetch(API_URL);
+    if (!response.ok) throw new Error("Error al obtener los datos de la API");
+
+    const alumnos = await response.json();
+    const alumnosFiltrados = alumnos.filter(
+      (alumno) => alumno.status === status
+    );
+    mostrarAlumnos(alumnosFiltrados);
+  } catch (error) {
+    console.error("Error:", error);
+    alert("Hubo un error al filtrar los alumnos");
   }
 }
 
