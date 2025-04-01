@@ -9,7 +9,7 @@ function obtenerDatosFormulario() {
   const domicilio = document.getElementById("txtDomicilio").value.trim();
   const fechanac = document.getElementById("txtFechaNac").value.trim();
   const sexo = document.getElementById("txtSexo").value;
-  const status = document.getElementById("txtStatus").value || "0"; // Default status to '0' if empty
+  const status = parseInt(document.getElementById("txtStatus").value) || 0;
 
   return { matricula, nombre, domicilio, fechanac, sexo, status };
 }
@@ -22,7 +22,7 @@ function validarDatos(alumno) {
     !alumno.domicilio ||
     !alumno.fechanac ||
     !alumno.sexo ||
-    !alumno.status === undefined
+    alumno.status == null
   ) {
     alert("Todos los campos son obligatorios.");
     return false;
